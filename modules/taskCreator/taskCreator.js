@@ -13,5 +13,4 @@ defineModule({name:'taskCreator', category:'task', description:'Task creator'}, 
             that.fireEvent('taskEntered', values);
         }});
     }
-
 });

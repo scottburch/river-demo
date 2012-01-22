@@ -1,15 +1,5 @@
 define(function() {
     "use strict";
-    window.environment = window.location.hostname === 'localhost' ? 'development' : 'production';
-
-    window.assert = function (test, text) {
-        if (!test) {
-            setTimeout(function () {
-                throw text;
-            }, 0);
-        }
-    };
-
     var riverModulesDir = 'vendor/river/modules';
 
     require(['lib/Application'], function(Application) {

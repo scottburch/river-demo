@@ -9,7 +9,7 @@ defineModule({name:'taskCreator', category:'task', description:'Task creator'}, 
     }
 
     function attachSubmit() {
-        that.doAction('addSubmitEvent', {selector:'#createTaskForm', onSubmit:function (values) {
+        that.doAction('addSubmitEvent', {selector:'#createTaskForm', clear: true, onSubmit:function (values) {
             that.fireEvent('taskEntered', values);
         }});
     }

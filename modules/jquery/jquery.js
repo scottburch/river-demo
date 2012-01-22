@@ -19,9 +19,15 @@ defineModule({name:'jquery', category:'lib', description:'jquery abstraction mod
                 return ret;
             },{});
             data.onSubmit(values);
+            data.clear === true && clearForm();
             return false;
         });
         data.cb && data.cb();
+
+        function clearForm() {
+            $j(':input', data.selector).not(':submit').val('');
+        }
+
     };
 
     that.do_appendHtml = function(data) {

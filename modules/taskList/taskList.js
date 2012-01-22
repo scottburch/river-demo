@@ -1,43 +1,35 @@
 defineModule({name:'taskList', category:'task', description:'Task creator'}, function (that) {
 
-    var tasks = [];
-
     that.on_desktop_ready = function () {
         renderList();
     };
 
-    that.on_serverRequest_taskReceived = function(data) {
-        renderTask(data);
-    };
+    that.on_serverRequest_taskReceived = renderTask;
+    that.on_serverRequest_taskUpdated = updateTask;
+    that.on_serverRequest_taskDeleted = deleteTask;
 
-    that.on_serverRequest_taskUpdated = function(data) {
-        that.require('text!task.html', function(template) {
-            var html = Mustache.render(template, data);
-            that.doAction('setInnerHtml', {html:html, selector: '#task-'+data.id, cb: function() {
-                attachEditButton(data);
-                attachDeleteButton(data);
-            }});
-        });
-    };
 
-    that.on_serverRequest_taskDeleted = function(data) {
+    function deleteTask(data) {
         that.doAction('removeHtml', {selector: '#task-'+data.id});
     }
 
+    function updateTask(data) {
+        that.doAction('renderReplace', {selector:'#task-'+data.id, template:'task.html', view:data, cb: function() {
+            attachEditButton(data);
+            attachDeleteButton(data);
+        }});
+    };
+
+
     function renderTask(data) {
-        that.require('text!task.html', function(template) {
-            var html = Mustache.render(template, data);
-            that.doAction('appendHtml', {html:html, selector: '#taskList', cb: function() {
-                attachEditButton(data);
-                attachDeleteButton(data);
-            }});
-        });
+        that.doAction('renderAppend', {selector: '#taskList', template: 'task.html', view:data, cb: function() {
+            attachEditButton(data);
+            attachDeleteButton(data);
+        }});
     }
 
     function renderList() {
-        that.require('text!taskList.html', function (template) {
-            that.doAction('appendHtml', {html:template, selector:'#taskList'});
-        });
+        that.doAction('renderAppend', {selector: '#taskList', template:'taskList.html'})
     }
 
     function attachEditButton(data) {
@@ -54,13 +46,17 @@ defineModule({name:'taskList', category:'task', description:'Task creator'}, fun
 
 
     function editTask(data) {
-        that.require('text!taskEdit.html', function(template) {
-            that.doAction('setInnerHtml', {selector: '#task-'+data.id, html:Mustache.render(template, data), cb: function() {
-                that.doAction('addSubmitEvent', {selector:'#updateTask-'+data.id, onSubmit:function (values) {
-                    values.id = data.id;
-                    that.fireEvent('taskUpdated', values);
-                }});
-            }})
-        });
+        that.doAction('renderReplace', {selector: '#task-'+data.id, template: 'taskEdit.html', view:data, cb: function() {
+            attachSubmitButton(data);
+        }});
     }
+
+    function attachSubmitButton(data) {
+        that.doAction('addSubmitEvent', {selector:'#updateTask-'+data.id, onSubmit:function (values) {
+            values.id = data.id;
+            that.fireEvent('taskUpdated', values);
+        }});
+    }
+
+
 });

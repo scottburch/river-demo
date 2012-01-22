@@ -1,7 +1,16 @@
-defineModule({name:'moustache', category:'lib', description:'render moustache templates', requires:['vendor/mustache.js']}, function(that, $m) {
+defineModule({name:'moustache', category:'lib', description:'render moustache templates', requires:['vendor/mustache.js']}, function (that) {
 
-    that.do_render = function(template, view, where) {
+    that.do_renderReplace = function (data, module) {
+        module.require('text!'+data.template, function (template) {
+           var html = Mustache.render(template, data.view);
+           that.doAction('setInnerHtml', {html:html, selector:data.selector, cb:data.cb});
+        });
+    };
 
+    that.do_renderAppend = function(data, module) {
+        module.require('text!'+data.template, function (template) {
+            var html = Mustache.render(template, data.view);
+            that.doAction('appendHtml', {html:html, selector:data.selector, cb:data.cb});
+        });
     }
-
 });

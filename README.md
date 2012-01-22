@@ -1,9 +1,7 @@
-#river-demo
-
 This is a demonstration of how to use the [river webapp framework](https://github.com/scottburch/river-js) to easily create web applications.
 Here I will only describe the demo code.  For a better understanding of the river framework please click on the preceeding link.
 
-## MODULES
+# MODULES
 
 ### desktop
 This module renders the "desktop" or page that everything else renders into.  It uses the mustache module to do the actual rendering.  It listens to the "moduleLoaded"
@@ -29,7 +27,7 @@ We have separated the creation of tasks from how they are viewd so that they are
 This module handles the rendering of the task list.
 It also handles the editing and deleting of tasks.
 
-## FILES
+# FILES
 
 ### boot.js
 This file starts up the river application and provides the list of modules to load

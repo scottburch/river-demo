@@ -8,13 +8,13 @@ Here I will only describe the demo code.  For a better understanding of the rive
     git submodule init
     git submodule update
 
-Load index.html using your favorite browser.
+Put the code on your favorite web server and load index.html using your favorite browser.
 
 ## MODULES
 
 ### desktop
-This module renders the "desktop" or page that everything else renders into.  It uses the mustache module to do the actual rendering.  It listens to the "moduleLoaded"
-event from river to know when to render the desktop.
+This module renders the "desktop" or page that everything else renders into.  It uses the mustache module to do the actual rendering.
+It also listens to the "moduleLoaded" event from river to know when to render the desktop.
 
 ### jquery
 This is a jquery abstraction module.  It provides some basic actions using jquery for dom manipulation.

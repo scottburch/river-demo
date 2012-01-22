@@ -1,9 +1,6 @@
 defineModule({name:'taskList', category:'task', description:'Task creator'}, function (that) {
 
-    that.on_desktop_ready = function () {
-        renderList();
-    };
-
+    that.on_desktop_ready = renderList;
     that.on_serverRequest_taskReceived = renderTask;
     that.on_serverRequest_taskUpdated = updateTask;
     that.on_serverRequest_taskDeleted = deleteTask;
@@ -18,7 +15,7 @@ defineModule({name:'taskList', category:'task', description:'Task creator'}, fun
             attachEditButton(data);
             attachDeleteButton(data);
         }});
-    };
+    }
 
 
     function renderTask(data) {

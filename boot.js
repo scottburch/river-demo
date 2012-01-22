@@ -2,9 +2,15 @@ define(function() {
     "use strict";
     var riverModulesDir = 'vendor/river/modules';
 
-    require(['lib/Application'], function(Application) {
-        window.Application = Application;
-        Application.start('js', [
+    window.requireConfig = {
+        paths: {lib: 'vendor/river/lib',modules:'modules', riverModules:'vendor/river/modules'}
+    };
+    require.config(requireConfig);
+
+
+
+    require(['lib/Application'], function(App) {
+        App.start('js', [
             {dir: riverModulesDir, name:'module'},
             {dir: riverModulesDir, name:'model'},
             {dir: riverModulesDir, name:'logging'},

@@ -11,4 +11,8 @@ defineModule({name:'serverRequest', category:'flow', description:'Server request
         that.fireEvent('taskUpdated', data);
     };
 
+    that.on_taskList_taskDeleted = function(data) {
+        that.fireEvent('taskDeleted', data);
+    }
+
 });

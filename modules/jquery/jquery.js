@@ -27,6 +27,12 @@ defineModule({name:'jquery', category:'lib', description:'jquery abstraction mod
     that.do_appendHtml = function(data) {
         $j(data.selector).append(data.html);
         data.cb && data.cb();
+    };
+
+    that.do_removeHtml = function(data) {
+        $j(data.selector).remove();
     }
+
+
 
 });

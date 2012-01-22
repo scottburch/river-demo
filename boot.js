@@ -23,7 +23,6 @@ define(function() {
             {name:'desktop'},
             {name:'taskCreator'},
             {name: 'jquery'},
-            {name: 'domain'},
             {name: 'serverRequest'},
             {name: 'taskList'},
             {name: 'mustache'}

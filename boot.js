@@ -11,11 +11,9 @@ define(function() {
 
     require(['lib/Application'], function(App) {
         App.start('js', [
-            {dir: riverModulesDir, name:'module'},
-            {dir: riverModulesDir, name:'model'},
-            {dir: riverModulesDir, name:'logging'},
-            {dir: riverModulesDir, name:'eventLogging'},
-            {dir: riverModulesDir, name:'commonUtils'},
+            {name:'logging'},
+            {name:'eventLogging'},
+            {name:'commonUtils'},
             {name:'desktop'},
             {name:'taskCreator'},
             {name: 'jquery'},

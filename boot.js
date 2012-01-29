@@ -1,9 +1,8 @@
 define(function() {
     "use strict";
-    var riverModulesDir = 'vendor/river/modules';
 
     window.requireConfig = {
-        paths: {lib: 'vendor/river/lib',modules:'modules', riverModules:'vendor/river/modules'}
+        paths: {lib: 'vendor/river/lib',modules:'modules'}
     };
     require.config(requireConfig);
 

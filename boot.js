@@ -1,15 +1,10 @@
 define(function() {
     "use strict";
 
-    window.requireConfig = {
-        paths: {river: 'vendor/river'}
-    };
-    require.config(requireConfig);
-
-
-
-    require(['river/lib/Application'], function(App) {
-        App.start('modules', [
+    window.river({
+        riverPath:'vendor/river',
+        modulesPath:'modules', 
+        modules: [
             {path:'logging'},
             {path:'eventLogging'},
             {path:'commonUtils'},
@@ -19,6 +14,6 @@ define(function() {
             {path: 'serverRequest'},
             {path: 'taskList'},
             {path: 'mustache'}
-        ]);
+        ]
     });
 });

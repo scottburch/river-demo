@@ -2,13 +2,13 @@ define(function() {
     "use strict";
 
     window.requireConfig = {
-        paths: {lib: 'vendor/river/lib',modules:'modules'}
+        paths: {river: 'vendor/river',modules:'modules'}
     };
     require.config(requireConfig);
 
 
 
-    require(['lib/Application'], function(App) {
+    require(['river/lib/Application'], function(App) {
         App.start('js', [
             {name:'logging'},
             {name:'eventLogging'},

@@ -10,15 +10,15 @@ define(function() {
 
     require(['river/lib/Application'], function(App) {
         App.start('js', [
-            {name:'logging'},
-            {name:'eventLogging'},
-            {name:'commonUtils'},
-            {name:'desktop'},
-            {name:'taskCreator'},
-            {name: 'jquery'},
-            {name: 'serverRequest'},
-            {name: 'taskList'},
-            {name: 'mustache'}
+            {path:'logging'},
+            {path:'eventLogging'},
+            {path:'commonUtils'},
+            {path:'desktop'},
+            {path:'taskCreator'},
+            {path: 'jquery'},
+            {path: 'serverRequest'},
+            {path: 'taskList'},
+            {path: 'mustache'}
         ]);
     });
 });

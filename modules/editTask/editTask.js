@@ -13,15 +13,10 @@ defineModule(function(that) {
             description: ko.observable(task.description)
         };
 
-
         that.update = function() {
             mod.doAction('renderKoTemplate', {name:'waitingForUpdate', to:'main', template:'templates/updating.html'});
             mod.doAction('updateTask', {id:task.id, title:that.title(), description:that.description()});
         };
         return that;
-
     }
-
-
-
 });

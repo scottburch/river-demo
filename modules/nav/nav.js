@@ -8,5 +8,5 @@ defineModule(function(that) {
         addTask: function() {
             that.doAction('showTaskCreator');
         }
-    }
+    };
 });

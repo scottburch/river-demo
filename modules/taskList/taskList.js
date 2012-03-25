@@ -19,6 +19,10 @@ defineModule(function(that) {
         taskListView.tasks.find('id', task.id).title(task.title);
     };
 
+    that.on_serverRequest_taskMarkedDone = function(task) {
+        taskListView.tasks.find('id', task.id).done(task.done);
+    };
+
     function TaskListView(mod) {
         var that = {
             tasks: ko.observableArray([])
@@ -34,6 +38,7 @@ defineModule(function(that) {
     function TaskListEntry(task) {
         var that = {
             title: ko.observable(task.title),
+            done: ko.observable(task.done),
             task: task,
             id: task.id
         };

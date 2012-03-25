@@ -12,7 +12,11 @@ defineModule(function(that) {
     };
 
     that.on_domain_taskAdded = function(task) {
-        taskListView.tasks.push(task);
+        taskListView.tasks.push(TaskListEntry(task));
+    };
+
+    that.on_domain_taskUpdated = function(task) {
+        taskListView.tasks.find('id', task.id).title(task.title);
     };
 
     function TaskListView(mod) {
@@ -20,14 +24,21 @@ defineModule(function(that) {
             tasks: ko.observableArray([])
         };
 
-        that.taskSelected = function() {};
-
+        that.taskSelected = function(entry) {
+            mod.fireEvent('taskSelected', entry.task);
+        };
 
         return that;
-
     }
 
-
+    function TaskListEntry(task) {
+        var that = {
+            title: ko.observable(task.title),
+            task: task,
+            id: task.id
+        };
+        return that;
+    }
 
 
 });

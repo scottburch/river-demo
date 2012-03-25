@@ -9,6 +9,12 @@ defineModule({name:'serverRequest', category:'flow', description:'Server request
         },1000);
     };
 
+    that.do_updateTask = function(task) {
+        setTimeout(function() {
+            that.fireEvent('taskReceived', {id:task.id, title:task.title, description:task.description});
+        },1000);
+    };
+
     that.on_taskList_taskUpdated = function(data) {
         that.fireEvent('taskReceived', data);
     };

@@ -13,6 +13,8 @@ define(function() {
             {path: 'tasker'},
             {path: 'nav'},
             {path: 'taskCreator'},
+            {path: 'viewTask'},
+            {path: 'editTask'},
             {path: 'domain'},
             {path: 'taskList'}
         ]

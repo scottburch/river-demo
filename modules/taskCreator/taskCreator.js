@@ -1,17 +1,8 @@
 defineModule(function(that) {
 
     that.do_showTaskCreator = function() {
-        renderCreate();
-    };
-
-    that.on_domain_taskAdded = function() {
-        renderCreate();
-    };
-
-    function renderCreate() {
         that.doAction('renderKoTemplate', {name:'taskCreator',to:'main',template:'templates/taskCreator.html', viewModel: TaskCreatorView(that)});
-
-    }
+    };
 
     function TaskCreatorView(mod) {
         var that = {
@@ -21,7 +12,7 @@ defineModule(function(that) {
 
         that.create = function() {
             mod.doAction('renderKoTemplate', {name:'waitingForCreation', to:'main', template:'templates/waiting.html'});
-            mod.doAction('createTask', {title:that.title, description:that.description});
+            mod.doAction('createTask', {title:that.title(), description:that.description()});
         }
         return that;
     }

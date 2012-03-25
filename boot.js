@@ -10,7 +10,11 @@ define(function() {
             {path:'eventLogging'},
             {path: 'serverRequest'},
             {path: 'knockout'},
-            {path: 'tasker'}
+            {path: 'tasker'},
+            {path: 'nav'},
+            {path: 'taskCreator'},
+            {path: 'domain'},
+            {path: 'taskList'}
         ]
     });
 });

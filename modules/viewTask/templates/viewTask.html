@@ -1,0 +1,19 @@
+<h2>View task</h2>
+
+<div>
+    <label>Title:</label>
+    <span data-bind="text:title"></span>
+</div>
+<div>
+    <label>Description:</label>
+    <span data-bind="text:description"></span>
+</div>
+<div>
+    <span data-bind="visible:!done()">
+        <button data-bind="click:edit">Edit</button>
+        <button data-bind="click:markDone">Mark done</button>
+    </span>
+    <span data-bind="visible:done">
+        <button data-bind="click:remove">Delete</button>
+    </span>
+</div>

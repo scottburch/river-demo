@@ -1,0 +1,16 @@
+tr {
+    vertical-align: top;
+}
+
+#sidebar {
+    padding-right: 20px;
+    border-right: 1px solid #666;
+}
+
+#main {
+    padding-left: 10px;
+}
+
+h1 {
+    border-bottom: 2px solid #888;
+}

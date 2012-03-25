@@ -1,16 +1,19 @@
-defineModule({name:'taskCreator', category:'task', description:'Task creator'}, function (that) {
+defineModule(function(that) {
 
-    that.on_desktop_ready = function () {
-        renderCreator();
+    that.do_showTaskCreator = function() {
+        that.doAction('renderKoTemplate', {name:'taskCreator',to:'main',template:'templates/taskCreator.html', viewModel: TaskCreatorView(that)});
     };
 
-    function renderCreator() {
-        that.doAction('renderReplace', {selector:'#createTask', template:'taskCreator.html', cb: attachSubmit});
-    }
+    function TaskCreatorView(mod) {
+        var that = {
+            title: ko.observable(),
+            description: ko.observable()
+        };
 
-    function attachSubmit() {
-        that.doAction('addSubmitEvent', {selector:'#createTaskForm', clear: true, onSubmit:function (values) {
-            that.fireEvent('taskEntered', values);
-        }});
+        that.create = function() {
+            mod.doAction('renderKoTemplate', {name:'waitingForCreation', to:'main', template:'templates/waiting.html'});
+            mod.doAction('createTask', {title:that.title(), description:that.description()});
+        }
+        return that;
     }
 });

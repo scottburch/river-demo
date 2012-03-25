@@ -10,3 +10,6 @@
 [submodule "modules/eventLogging"]
 	path = modules/eventLogging
 	url = git@github.com:scottburch/river-eventLogging.git
+[submodule "modules/loaders"]
+	path = modules/loaders
+	url = git@github.com:scottburch/river-loaders.git

@@ -1,19 +1,23 @@
-define(function() {
+(function() {
     "use strict";
+
 
     window.river({
         riverPath:'vendor/river',
         modulesPath:'modules', 
         modules: [
+            {path: 'loaders'},
             {path:'logging'},
             {path:'eventLogging'},
-            {path:'commonUtils'},
-            {path:'desktop'},
-            {path:'taskCreator'},
-            {path: 'jquery'},
             {path: 'serverRequest'},
-            {path: 'taskList'},
-            {path: 'mustache'}
+            {path: 'knockout'},
+            {path: 'tasker'},
+            {path: 'nav'},
+            {path: 'taskCreator'},
+            {path: 'viewTask'},
+            {path: 'editTask'},
+            {path: 'domain'},
+            {path: 'taskList'}
         ]
     });
-});
+}());

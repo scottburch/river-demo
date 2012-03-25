@@ -1,58 +1,59 @@
-defineModule({name:'taskList', category:'task', description:'Task creator'}, function (that) {
+defineModule(function(that) {
 
-    that.on_desktop_ready = renderList;
-    that.on_serverRequest_taskReceived = renderTask;
-    that.on_serverRequest_taskUpdated = updateTask;
-    that.on_serverRequest_taskDeleted = deleteTask;
+    var taskListView;
+
+    that.on_moduleManager_modulesLoaded = function() {
+        that.doAction('loadCss', {href:'css/taskList.css'});
+    };
 
 
-    function deleteTask(data) {
-        that.doAction('removeHtml', {selector: '#task-'+data.id});
+    that.on_knockout_taskerTemplateRendered = function() {
+        taskListView = TaskListView(that);
+        that.doAction('renderKoTemplate', {name:'taskList', to:'taskList', template:'templates/taskList.html', viewModel:taskListView});
+    };
+
+    that.on_knockout_taskListTemplateRendered = function() {
+        that.doAction('loadTasks');
+    };
+
+    that.on_domain_taskAdded = function(task) {
+        taskListView.tasks.push(TaskListEntry(task));
+    };
+
+    that.on_domain_taskUpdated = function(task) {
+        taskListView.tasks.find('id', task.id).title(task.title);
+    };
+
+    that.on_serverRequest_taskMarkedDone = function(task) {
+        taskListView.tasks.find('id', task.id).done(task.done);
+    };
+
+    that.on_domain_taskDeleted = function(data) {
+        taskListView.tasks.remove(function(it) {
+            return it.id === data.id;
+        });
+    };
+
+    function TaskListView(mod) {
+        var that = {
+            tasks: ko.observableArray([])
+        };
+
+        that.taskSelected = function(entry) {
+            mod.fireEvent('taskSelected', entry.task);
+        };
+
+        return that;
     }
 
-    function updateTask(data) {
-        that.doAction('renderReplace', {selector:'#task-'+data.id, template:'task.html', view:data, cb: function() {
-            attachEditButton(data);
-            attachDeleteButton(data);
-        }});
-    }
-
-
-    function renderTask(data) {
-        that.doAction('renderAppend', {selector: '#taskList', template: 'task.html', view:data, cb: function() {
-            attachEditButton(data);
-            attachDeleteButton(data);
-        }});
-    }
-
-    function renderList() {
-        that.doAction('renderAppend', {selector: '#taskList', template:'taskList.html'})
-    }
-
-    function attachEditButton(data) {
-        that.doAction('addClickEvent', {selector:'#taskEditBtn-'+data.id, onClick:function () {
-            editTask(data);
-        }});
-    }
-
-    function attachDeleteButton(data) {
-        that.doAction('addClickEvent', {selector:'#taskDeleteBtn-'+data.id, onClick:function () {
-            that.fireEvent('taskDeleted',data);
-        }});
-    }
-
-
-    function editTask(data) {
-        that.doAction('renderReplace', {selector: '#task-'+data.id, template: 'taskEdit.html', view:data, cb: function() {
-            attachSubmitButton(data);
-        }});
-    }
-
-    function attachSubmitButton(data) {
-        that.doAction('addSubmitEvent', {selector:'#updateTask-'+data.id, onSubmit:function (values) {
-            values.id = data.id;
-            that.fireEvent('taskUpdated', values);
-        }});
+    function TaskListEntry(task) {
+        var that = {
+            title: ko.observable(task.title),
+            done: ko.observable(task.done),
+            task: task,
+            id: task.id
+        };
+        return that;
     }
 
 

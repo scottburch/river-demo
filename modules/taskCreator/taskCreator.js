@@ -1,8 +1,17 @@
 defineModule(function(that) {
 
     that.do_showTaskCreator = function() {
-        that.doAction('renderKoTemplate', {name:'taskCreator',to:'main',template:'templates/taskCreator.html', viewModel: TaskCreatorView(that)});
+        renderCreate();
     };
+
+    that.on_domain_taskAdded = function() {
+        renderCreate();
+    };
+
+    function renderCreate() {
+        that.doAction('renderKoTemplate', {name:'taskCreator',to:'main',template:'templates/taskCreator.html', viewModel: TaskCreatorView(that)});
+
+    }
 
     function TaskCreatorView(mod) {
         var that = {

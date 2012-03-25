@@ -20,6 +20,8 @@ defineModule(function(that) {
             tasks: ko.observableArray([])
         };
 
+        that.taskSelected = function() {};
+
 
         return that;
 

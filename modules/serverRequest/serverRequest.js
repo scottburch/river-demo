@@ -3,8 +3,10 @@ defineModule({name:'serverRequest', category:'flow', description:'Server request
     var idCounter = 0;
 
     that.do_createTask = function(values) {
-        values.id = idCounter++;
-        that.fireEvent('taskReceived', values);
+        setTimeout(function() {
+            values.id = idCounter++;
+            that.fireEvent('taskReceived', values);
+        },1000);
     };
 
     that.on_taskList_taskUpdated = function(data) {

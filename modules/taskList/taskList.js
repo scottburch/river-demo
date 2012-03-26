@@ -2,6 +2,11 @@ defineModule(function(that) {
 
     var taskListView;
 
+    that.on_moduleManager_modulesLoaded = function() {
+        that.doAction('loadCss', {href:'css/taskList.css'});
+    };
+
+
     that.on_knockout_taskerTemplateRendered = function() {
         taskListView = TaskListView(that);
         that.doAction('renderKoTemplate', {name:'taskList', to:'taskList', template:'templates/taskList.html', viewModel:taskListView});

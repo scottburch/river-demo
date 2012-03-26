@@ -6,6 +6,7 @@
         riverPath:'vendor/river',
         modulesPath:'modules', 
         modules: [
+            {path: 'loaders'},
             {path:'logging'},
             {path:'eventLogging'},
             {path: 'serverRequest'},

@@ -13,6 +13,11 @@ defineModule(function(that) {
         }
     };
 
+    that.on_serverRequest_taskDeleted = function(data) {
+        tasks[data.id] = undefined;
+        that.fireEvent('taskDeleted',{id:data.id});
+    };
+
     function Task(rawTask) {
         var that = {};
         that.update = function(rawTask) {

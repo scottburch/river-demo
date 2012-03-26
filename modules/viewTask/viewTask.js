@@ -11,8 +11,18 @@ defineModule(function(that) {
         viewTaskView.done(true);
     };
 
+    that.on_domain_taskDeleted = function(data) {
+        if(viewTaskView.task.id === data.id) {
+            that.doAction('renderKoTemplate', {name:'taskDeleted', to:'main', template:'templates/taskDeleted.html'});
+        }
+    }
+
+
+
+
     function ViewTaskView(mod, task) {
         return {
+            task:task,
             title:ko.observable(task.title),
             description:ko.observable(task.description),
             done: ko.observable(task.done),
@@ -21,6 +31,9 @@ defineModule(function(that) {
             },
             markDone: function() {
                 mod.doAction('markTaskDone', {task:task});
+            },
+            remove: function() {
+                mod.doAction('deleteTask', {task:task});
             }
         }
     }

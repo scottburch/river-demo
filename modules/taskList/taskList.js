@@ -23,6 +23,12 @@ defineModule(function(that) {
         taskListView.tasks.find('id', task.id).done(task.done);
     };
 
+    that.on_domain_taskDeleted = function(data) {
+        taskListView.tasks.remove(function(it) {
+            return it.id === data.id;
+        });
+    };
+
     function TaskListView(mod) {
         var that = {
             tasks: ko.observableArray([])

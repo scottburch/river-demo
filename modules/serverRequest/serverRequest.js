@@ -22,12 +22,14 @@ defineModule({name:'serverRequest', category:'flow', description:'Server request
         },500);
     };
 
-    that.on_taskList_taskUpdated = function(data) {
-        that.fireEvent('taskReceived', data);
+    that.do_deleteTask = function(data) {
+        setTimeout(function() {
+            that.fireEvent('taskDeleted', {id:data.task.id});
+        },500);
     };
 
-    that.on_taskList_taskDeleted = function(data) {
-        that.fireEvent('taskDeleted', data);
+    that.on_taskList_taskUpdated = function(data) {
+        that.fireEvent('taskReceived', data);
     };
 
     that.do_loadTasks = function() {

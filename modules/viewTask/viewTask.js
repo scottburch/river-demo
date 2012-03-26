@@ -15,7 +15,7 @@ defineModule(function(that) {
         if(viewTaskView.task.id === data.id) {
             that.doAction('renderKoTemplate', {name:'taskDeleted', to:'main', template:'templates/taskDeleted.html'});
         }
-    }
+    };
 
 
 
@@ -33,6 +33,7 @@ defineModule(function(that) {
                 mod.doAction('markTaskDone', {task:task});
             },
             remove: function() {
+                that.doAction('renderKoTemplate', {name:'deletingTask', to:'main', template:'templates/deletingTask.html'});
                 mod.doAction('deleteTask', {task:task});
             }
         }

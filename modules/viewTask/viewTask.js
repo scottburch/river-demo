@@ -17,9 +17,6 @@ defineModule(function(that) {
         }
     };
 
-
-
-
     function ViewTaskView(mod, task) {
         return {
             task:task,

@@ -1,4 +1,4 @@
-define(function() {
+(function() {
     "use strict";
 
 
@@ -19,4 +19,4 @@ define(function() {
             {path: 'taskList'}
         ]
     });
-});
+}());

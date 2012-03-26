@@ -6,7 +6,8 @@
         riverPath:'vendor/river',
         modulesPath:'modules', 
         modules: [
-            {path: 'loaders'},
+            // modules can be loaded remotely as well as locally
+            {path: 'http://scottburch.github.com/river-demo/demo/modules/loaders'},
             {path:'logging'},
             {path:'eventLogging'},
             {path: 'serverRequest'},

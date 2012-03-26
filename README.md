@@ -1,5 +1,5 @@
 ## INTRODUCTION
-This is a demonstration of how to use the [river webapp framework](https://github.com/scottburch/river-js) to easily create web applications.
+This is a demonstration of how to use [river](https://github.com/scottburch/river-js) to easily create web applications.
 Here I will only describe the demo code.  For a better understanding of the river framework please click on the preceeding link.
 
 In order to show off the features of river I have put very small peices of functionality into their own modules.

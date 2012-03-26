@@ -7,6 +7,11 @@ tr {
     border-right: 1px solid #666;
 }
 
+#navigation {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+}
+
 #main {
     padding-left: 10px;
 }

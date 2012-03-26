@@ -28,10 +28,6 @@ defineModule({name:'serverRequest', category:'flow', description:'Server request
         },500);
     };
 
-    that.on_taskList_taskUpdated = function(data) {
-        that.fireEvent('taskReceived', data);
-    };
-
     that.do_loadTasks = function() {
         [{id:idCounter++, title:'Create river demo', description:'Create river demo using knockout.'}].forEach(function(task){
             that.fireEvent('taskReceived', task);

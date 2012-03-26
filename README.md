@@ -10,6 +10,10 @@ Here I will only describe the demo code.  For a better understanding of the rive
 
 Put the code on your favorite web server and load index.html using your favorite browser.
 
+## ONLINE DEMO
+
+[online demo](http://scottburch.github.com/river-demo/demo/index.html)
+
 
 
 

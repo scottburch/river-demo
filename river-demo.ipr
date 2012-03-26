@@ -34,6 +34,10 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/eventLogging" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/loaders" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/logging" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/vendor/river" vcs="Git" />
   </component>
   <component name="masterDetails">
     <states>

@@ -15,4 +15,4 @@
 	url = git@github.com:scottburch/river-loaders.git
 [submodule "modules/knockout"]
 	path = modules/knockout
-	url = git@github.com:scottburch/river-eventLogging.git
+	url = git@github.com:scottburch/river-knockout.git

@@ -4,11 +4,11 @@
 
     var modules = [
         // modules can be loaded remotely as well as locally
-        {path: 'loaders'},
-        {path:'http://scottburch.github.com/river-demo/demo/modules/logging'},
-        {path:'eventLogging'},
+        {path: 'http://scottburch.github.com/river-demo/demo/modules/loaders'},
+        {path: 'http://scottburch.github.com/river-demo/demo/modules/logging'},
+        {path: 'http://scottburch.github.com/river-demo/demo/modules/eventLogging'},
+        {path: 'http://scottburch.github.com/river-demo/demo/modules/knockout'},
         {path: 'serverRequest'},
-        {path: 'knockout'},
         {path: 'tasker'},
         {path: 'nav'},
         {path: 'viewTask'},

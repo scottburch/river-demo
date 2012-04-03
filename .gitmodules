@@ -1,3 +1,21 @@
 [submodule "vendor/river"]
 	path = vendor/river
 	url = git://github.com/scottburch/river-js.git
+[submodule "modules/commonUtils"]
+	path = modules/commonUtils
+	url = git://github.com/scottburch/river-commonUtils.git
+[submodule "modules/logging"]
+	path = modules/logging
+	url = git://github.com/scottburch/river-logging.git
+[submodule "modules/eventLogging"]
+	path = modules/eventLogging
+	url = git://github.com/scottburch/river-eventLogging.git
+[submodule "modules/loaders"]
+	path = modules/loaders
+	url = git://github.com/scottburch/river-loaders.git
+[submodule "modules/knockout"]
+	path = modules/knockout
+	url = git://github.com/scottburch/river-knockout.git
+[submodule "modules/jasmine"]
+	path = modules/jasmine
+	url = git://github.com/scottburch/river-jasmine.git

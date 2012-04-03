@@ -24,6 +24,12 @@ This demonstrates how modules can work together to make changes very easy.
 
 [http://scottburch.github.com/river-demo/demo/index.html?nocreate](http://scottburch.github.com/river-demo/demo/index.html?nocreate)
 
+See an example of running tests using the [jasmine module](https://github.com/scottburch/river-jasmine)
+
+[http://scottburch.github.com/river-demo/demo/index.html?jasmine](http://scottburch.github.com/river-demo/demo/index.html?jasmine)
+
+
+
 
 
 

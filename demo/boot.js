@@ -8,14 +8,14 @@
         {path: 'http://scottburch.github.com/river-demo/demo/modules/logging'},
         {path: 'http://scottburch.github.com/river-demo/demo/modules/eventLogging'},
         {path: 'http://scottburch.github.com/river-demo/demo/modules/knockout'},
+        {path: 'http://scottburch.github.com/river-demo/demo/modules/jasmine'},
         {path: 'serverRequest'},
         {path: 'tasker'},
         {path: 'nav'},
         {path: 'viewTask'},
         {path: 'editTask'},
         {path: 'domain'},
-        {path: 'taskList'},
-        {path: 'jasmine'}
+        {path: 'taskList'}
     ];
 
     if(/nocreate/.test(window.location.href) === false) {

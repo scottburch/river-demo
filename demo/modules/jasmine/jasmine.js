@@ -16,8 +16,8 @@ defineModule(function(that) {
     function loadJasmine() {
         document.querySelector('body').innerHTML = '';
         that.doAction('loadCss', {href:'vendor/jasmine/jasmine.css'});
-        that.require('vendor/jasmine/jasmine', function() {
-            that.require('vendor/jasmine/jasmine-html', loadTests);
+        that.require('vendor/jasmine/jasmine.js', function() {
+            that.require('vendor/jasmine/jasmine-html.js', loadTests);
         });
     }
 

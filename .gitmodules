@@ -16,3 +16,6 @@
 [submodule "modules/knockout"]
 	path = modules/knockout
 	url = git@github.com:scottburch/river-knockout.git
+[submodule "modules/jasmine"]
+	path = modules/jasmine
+	url = git@github.com:scottburch/river-jasmine.git

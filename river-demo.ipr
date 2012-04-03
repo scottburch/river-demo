@@ -21,8 +21,12 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/vendor/river/river.iml" filepath="$PROJECT_DIR$/vendor/river/river.iml" />
       <module fileurl="file://$PROJECT_DIR$/river-demo.iml" filepath="$PROJECT_DIR$/river-demo.iml" />
     </modules>
   </component>
@@ -35,59 +39,11 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/modules/eventLogging" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/jasmine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/knockout" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/modules/loaders" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/modules/logging" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vendor/river" vcs="Git" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
 

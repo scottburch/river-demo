@@ -7,6 +7,6 @@ defineModule({name:'logging', category:'logging', description:'Logging module'},
     };
 
     that.jasmineSpecs = [
-        'specs/loggingSpec'
+        'specs/loggingSpec.js'
     ];
 });

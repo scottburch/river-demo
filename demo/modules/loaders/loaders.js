@@ -26,7 +26,7 @@ defineModule({name:'loaders', category:'River', description:'Loaders for css...'
     }
 
     that.jasmineSpecs = [
-        'specs/loadersSpec'
+        'specs/loadersSpec.js'
     ];
 
 });

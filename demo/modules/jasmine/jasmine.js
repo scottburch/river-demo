@@ -1,11 +1,11 @@
 defineModule(function(that) {
 
     that.on_moduleManager_modulesLoaded = function() {
-        /jasmine/.test(window.location.href) && loadJasmine();
+        /jasmine|spec=/.test(window.location.href) && loadJasmine();
     };
 
     that.filterEvents = function(data, cb) {
-        if(/jasmine/.test(window.location.href) && data.event === 'modulesLoaded') {
+        if(/jasmine|spec=/.test(window.location.href) && data.event === 'modulesLoaded') {
             cb(data.module.name === 'jasmine');
         } else {
             cb(true);

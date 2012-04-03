@@ -5,4 +5,8 @@ defineModule({name:'logging', category:'logging', description:'Logging module'},
             console.log(data);
         }
     };
+
+    that.jasmineSpecs = [
+        'specs/loggingSpec'
+    ];
 });

@@ -4,8 +4,8 @@
 
     var modules = [
         // modules can be loaded remotely as well as locally
-        {path: 'http://scottburch.github.com/river-demo/demo/modules/loaders'},
-        {path:'logging'},
+        {path: 'loaders'},
+        {path:'http://scottburch.github.com/river-demo/demo/modules/logging'},
         {path:'eventLogging'},
         {path: 'serverRequest'},
         {path: 'knockout'},
@@ -14,7 +14,8 @@
         {path: 'viewTask'},
         {path: 'editTask'},
         {path: 'domain'},
-        {path: 'taskList'}
+        {path: 'taskList'},
+        {path: 'jasmine'}
     ];
 
     if(/nocreate/.test(window.location.href) === false) {

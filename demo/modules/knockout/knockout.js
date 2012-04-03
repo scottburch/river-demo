@@ -5,7 +5,7 @@ defineModule(function (that) {
     that.on_moduleManager_modulesLoaded = function() {
         window.requireConfig.paths.text = that.modulePath + '/vendor/text';
         require.config(window.requireConfig);
-        that.require('vendor/knockout', function() {
+        that.require('vendor/knockout.js', function() {
             extendKo();
             that.fireEvent('ready');
         });

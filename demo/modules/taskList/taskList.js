@@ -8,8 +8,10 @@ defineModule(function(that) {
 
 
     that.on_knockout_taskerTemplateRendered = function() {
-        taskListView = TaskListView(that);
-        that.doAction('renderKoTemplate', {name:'taskList', to:'taskList', template:'templates/taskList.html', viewModel:taskListView});
+        that.require('views/TaskListView', function(TaskListView) {
+            taskListView = TaskListView(helpers);
+            that.doAction('renderKoTemplate', {name:'taskList', to:'taskList', template:'templates/taskList.html', viewModel:taskListView});
+        });
     };
 
     that.on_knockout_taskListTemplateRendered = function() {
@@ -17,7 +19,9 @@ defineModule(function(that) {
     };
 
     that.on_domain_taskAdded = function(task) {
-        taskListView.tasks.push(TaskListEntry(task));
+        that.require('views/TaskListEntry.js', function(TaskListEntry) {
+            taskListView.tasks.push(TaskListEntry(task));
+        });
     };
 
     that.on_domain_taskUpdated = function(task) {
@@ -34,27 +38,9 @@ defineModule(function(that) {
         });
     };
 
-    function TaskListView(mod) {
-        var that = {
-            tasks: ko.observableArray([])
-        };
-
-        that.taskSelected = function(entry) {
-            mod.fireEvent('taskSelected', entry.task);
-        };
-
-        return that;
+    var helpers = {
+        taskSelected: function(entry) {
+            that.fireEvent('taskSelected', entry.task);
+        }
     }
-
-    function TaskListEntry(task) {
-        var that = {
-            title: ko.observable(task.title),
-            done: ko.observable(task.done),
-            task: task,
-            id: task.id
-        };
-        return that;
-    }
-
-
 });

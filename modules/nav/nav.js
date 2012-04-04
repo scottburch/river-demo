@@ -3,8 +3,10 @@ defineModule(function(that) {
     var navView;
 
     that.on_knockout_taskerTemplateRendered = function() {
-        navView = NavView(that);
-        that.doAction('renderKoTemplate', {name:'nav', to:'navigation', template:'templates/nav.html', viewModel:navView});
+        that.require('views/NavView.js', function(NavView) {
+            navView = NavView(helpers);
+            that.doAction('renderKoTemplate', {name:'nav', to:'navigation', template:'templates/nav.html', viewModel:navView});
+        });
     };
 
 
@@ -16,15 +18,7 @@ defineModule(function(that) {
         navView.buttons.push({text:data.text, action:data.action});
     };
 
-    function NavView(mod) {
-        var that = {
-            buttons: ko.observableArray([]),
-            buttonClicked: function(data) {
-                mod.doAction(data.action);
-            }
-        };
-
-        return that;
-    }
-
+    var helpers = {
+        doAction:that.doAction
+    };
 });

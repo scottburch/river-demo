@@ -15,12 +15,9 @@
         {path: 'viewTask'},
         {path: 'editTask'},
         {path: 'domain'},
-        {path: 'taskList'}
+        {path: 'taskList'},
+        {path: 'createTask', enabled: /nocreate/.test(window.location.href) === false}
     ];
-
-    if(/nocreate/.test(window.location.href) === false) {
-        modules.push({path: 'createTask'});
-    }
 
     window.river({
         riverPath:'vendor/river',

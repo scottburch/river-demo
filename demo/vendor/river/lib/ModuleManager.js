@@ -44,7 +44,7 @@ define(function () {
                     moduleDef.dir = getLocationFromPath(moduleDef.path);
                     moduleDef.name = getNameFromPath(moduleDef.path);
                 }
-                moduleDef.dir = moduleDef.dir || Application.baseDir || 'modules';
+                moduleDef.dir = moduleDef.dir || Application.modulesDir || 'modules';
                 var modulePath = [moduleDef.dir, moduleDef.name].join('/');
                 // add module paths to require
                 window.requireConfig.paths[moduleDef.name + 'Module'] = modulePath + '/' + moduleDef.name;
@@ -52,6 +52,7 @@ define(function () {
                 require([moduleDef.name + 'Module'], function (mediator) {
                     mediator.name = moduleDef.name;
                     mediator.modulePath = modulePath;
+                    mediator.enable(moduleDef.enabled !== false);
                     modules.push(mediator);
                     mediator.beforeEach && initBeforeEach(mediator)
                     cb();

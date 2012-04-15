@@ -74,5 +74,14 @@ defineModule(function (that) {
             });
             return proxy;
         };
+
+        // Fixes a problem in knockout where it does not set id attributes properly
+        ko.bindingHandlers.id = {
+            init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+            },
+            update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+                element.id = valueAccessor();
+            }
+        };
     }
 });
